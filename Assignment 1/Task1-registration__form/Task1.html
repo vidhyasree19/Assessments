@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="Task1.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" required
+                onkeydown="return /[a-zA-Z/s]/i.test(event.key)">
+                <span class="error" id="firstnameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" required
+                onkeydown="return /[a-zA-Z/s]/i.test(event.key)">
+                <span class="error" id="lastnameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="text" id="mobile" name="mobile" required maxlength="10"
+                onkeydown="return /[0-9]/.test(event.key) || event.key === 'Backspace'">
+                <span class="error" id="mobileError"></span>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <span class="error" id="genderError"></span>
+            </div>
+            <div class="form-group">
+                <label for="class">Class:</label>
+                <input type="text" id="class" name="class" required>
+                <span class="error" id="classError"></span>
+            </div>
+            <div class="form-group">
+                <label for="rollNumber">Roll Number:</label>
+                <input type="text" id="rollNumber" name="rollNumber" required>
+                <span class="error" id="rollNumberError"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <span class="error" id="passwordError"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <span class="error" id="confirmPasswordError"></span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="Task1.js"></script>
+</body>
+</html>

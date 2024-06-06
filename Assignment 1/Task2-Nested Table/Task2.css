@@ -1,0 +1,36 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+
+#headerRow1 th,
+#headerRow2 th,
+#headerRow3 th {
+    background-color: #ccc;
+}
+
+#headerRow1 th,
+#headerRow2 th,
+#headerRow3 th {
+    border: 1px solid black;
+    text-align: center;
+}

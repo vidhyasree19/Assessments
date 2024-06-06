@@ -1,0 +1,53 @@
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"] {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+}
+
+
+button {
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+div {
+    margin-bottom: 20px;
+}
