@@ -1,0 +1,10 @@
+.table_heading{
+  background-color: grey;
+ 
+}
+.each_heading{
+  padding-right: 20px;
+}
+.table, th, td {
+  border: 1px solid;
+}

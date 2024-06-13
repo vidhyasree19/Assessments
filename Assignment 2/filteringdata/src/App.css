@@ -114,7 +114,6 @@ h1 {
   color: #ff4d4d;
 }
 
-/* Responsive Design */
 @media (max-width: 1200px) {
   .product {
     width: calc(50% - 20px);

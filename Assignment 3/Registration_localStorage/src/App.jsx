@@ -25,7 +25,6 @@ const App = () => {
         <ul>
           <li><Link to="/">Register Employee</Link></li>
           <li><Link to="/employees">Employee List</Link></li>
-          {/* Use employee details with id placeholder */}
           <li><Link to="/employee-details/:id">Employee Details</Link></li>
         </ul>
       </nav>
@@ -33,7 +32,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<RegisterEmployee addEmployee={addEmployee} />} />
           <Route path="/employees" element={<EmployeeList employees={employees} />} />
-          {/* Use employee details with id placeholder */}
           <Route path="/employee-details/:id" element={<EmployeeDetails employees={employees} />} />
         </Routes>
       </main>

@@ -10,7 +10,7 @@ const FormComponent = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [daysSinceDOB, setDaysSinceDOB] = useState(null);
+  const [days, setDays] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,8 +62,8 @@ const FormComponent = () => {
       [name]: value,
     }));
 
-    if (name === 'dateOfBirth') {
-      calculateDaysSinceDOB(value);
+    if (name === 'days') {
+      calculateDays(value);
     }
   };
 
@@ -82,12 +82,12 @@ const FormComponent = () => {
       newErrors.panCard = 'PAN Card should follow the pattern: 5 alphabets, 4 digits, 1 alphabet.';
     }
 
-    const dob = new Date(form.dateOfBirth);
+    const dob = new Date(form.days);
     const today = new Date();
     if (dob >= today) {
-      newErrors.dateOfBirth = 'Date of birth cannot be today or a future date.';
+      newErrors.days = 'Date of birth cannot be today or a future date.';
     } else if (today.getFullYear() - dob.getFullYear() > 100) {
-      newErrors.dateOfBirth = 'Year of birth should be within the last 100 years.';
+      newErrors.days = 'Year of birth should be within the last 100 years.';
     }
 
     setErrors(newErrors);
@@ -102,12 +102,12 @@ const FormComponent = () => {
     }
   };
 
-  const calculateDaysSinceDOB = (date) => {
-    const selectedDate = new Date(date);
+  const calculateDays = (date) => {
+    const selected = new Date(date);
     const today = new Date();
-    const timeDiff = today.getTime() - selectedDate.getTime();
-    const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
-    setDaysSinceDOB(daysDiff);
+    const timeDifference = today.getTime() - selected.getTime();
+    const numOfDays = Math.floor(timeDifference / (1000 * 3600 * 24));
+    setDays(numOfDays);
   };
 
   return (
@@ -156,16 +156,16 @@ const FormComponent = () => {
             <label className="label">Date of Birth:</label>
             <input
               type="date"
-              name="dateOfBirth"
-              value={form.dateOfBirth}
+              name="days"
+              value={form.days}
               onChange={handleChange}
               required
               max={new Date().toISOString().split('T')[0]}
               className="input"
             />
-            {errors.dateOfBirth && <p className="error">{errors.dateOfBirth}</p>}
-            {daysSinceDOB !== null && (
-              <p className="info">Total days since date of birth: {daysSinceDOB} days</p>
+            {errors.days && <p className="error">{errors.days}</p>}
+            {days !== null && (
+              <p className="info">Total days: {days} days</p>
             )}
           </div>
           <button type="submit" className="button">Submit</button>
