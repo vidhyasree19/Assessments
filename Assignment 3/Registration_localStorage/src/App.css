@@ -1,4 +1,4 @@
-/* App.css */
+
 
 body {
   margin: 0;
@@ -101,7 +101,7 @@ button:focus-visible {
   margin: 5px 0;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 800px) {
   .sidebar {
     width: 150px;

@@ -1,0 +1,43 @@
+
+.menu-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .menu-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .menu-item span {
+    flex-grow: 1;
+  }
+  
+  .menu-item button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .menu-item button:hover {
+    background-color: #0056b3;
+  }
+  

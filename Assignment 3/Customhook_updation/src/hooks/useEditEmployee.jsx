@@ -9,7 +9,7 @@ const useEditEmployee = (initialEmployees) => {
     if (storedEmployees) {
       setEmployees(storedEmployees);
     }
-  }, [initialEmployees]); // <-- Include initialEmployees in the dependency array
+  }, [initialEmployees]); 
 
   const editEmployee = (id, updatedEmployee) => {
     const updatedEmployees = employees.map((employee) =>

@@ -1,4 +1,4 @@
-// useDeleteEmployee.js
+
 import { useState, useEffect } from "react";
 
 const useDeleteEmployee = (initialEmployees) => {
@@ -9,7 +9,7 @@ const useDeleteEmployee = (initialEmployees) => {
     if (storedEmployees) {
       setEmployees(storedEmployees);
     }
-  }, [initialEmployees]); // <-- Include initialEmployees in the dependency array
+  }, [initialEmployees]);
 
   const deleteEmployee = (id) => {
     const updatedEmployees = employees.filter((employee) => employee.id !== id);

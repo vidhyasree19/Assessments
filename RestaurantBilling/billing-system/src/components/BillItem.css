@@ -1,0 +1,43 @@
+.bill-item {
+    background-color: #f9f9f9;
+  }
+  
+  .bill-item td, .bill-item th {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .bill-item .quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bill-item .quantity-controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 0 5px;
+  }
+  
+  .bill-item .quantity-controls button:hover {
+    background-color: #0056b3;
+  }
+  
+  .bill-item button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .bill-item button:hover {
+    background-color: #c82333;
+  }
+  
