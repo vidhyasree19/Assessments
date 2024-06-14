@@ -3,6 +3,7 @@ import * as XLSX from 'xlsx';
 
 const ExcelToTable = () => {
   const [excelData, setExcelData] = useState(null);
+  const temp = 0;
   const [error, setError] = useState(null);
   const handleChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -20,19 +21,20 @@ const ExcelToTable = () => {
     reader.readAsArrayBuffer(selectedFile)
 
   }
+
   console.log('ecel', excelData)
 
 
   return (
     <div>
-      <input type="file" accept='.xlsx,.xsl' onChange={handleChange} />
+      <input type="file" accept='.xlsx,.xsl' onChange={handleChange} id='inputFile' />
       {(excelData) ?
 
 
         (<table className="table">
           <thead className='table_heading'>
             <tr className='each_heading'>
-              {excelData[0].map((head,index)=>(
+              {excelData[temp].map((head, index) => (
                 <th key={index}>{head}</th>
               ))}
             </tr>
@@ -50,7 +52,7 @@ const ExcelToTable = () => {
           </tbody>
         </table>) :
 
-        (<h1>No data</h1>)}
+        (<h4> Please upload your file</h4>)}
 
     </div>
   )
