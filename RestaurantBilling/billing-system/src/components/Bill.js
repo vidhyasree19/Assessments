@@ -28,7 +28,7 @@ const Bill = () => {
           </tbody>
         </table>
       </div>
-      <h3>Total: ${totalPrice.toFixed(2)}</h3>
+      <h3>Total: ${totalPrice}</h3>
     </div>
   );
 };

@@ -23,7 +23,7 @@ const BillItem = ({ item }) => {
   return (
     <tr className="bill-item">
       <td>{item.name}</td>
-      <td>${item.price.toFixed(2)}</td>
+      <td>${item.price}</td>
       <td>
         <div className="quantity-controls">
           <button onClick={handleDecrement}>-</button>
@@ -31,7 +31,7 @@ const BillItem = ({ item }) => {
           <button onClick={handleIncrement}>+</button>
         </div>
       </td>
-      <td>${(item.price * item.quantity).toFixed(2)}</td>
+      <td>${(item.price * item.quantity)}</td>
       <td>
         <button onClick={handleRemove}>Remove</button>
       </td>
