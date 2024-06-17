@@ -7,9 +7,10 @@ const ExcelToTable = () => {
   const [filters, setFilters] = useState([]);
   const [dropdownOptions, setDropdownOptions] = useState([]);
   const [sortOrder, setSortOrder] = useState('');
+  const [sortColumn,setSortColumn]=useState('')
   const fileInputRef = useRef(null);
 
-  const { temp, slice, filterableColumns, ageColumnIndex } = config;
+  const { temp, slice, filterableColumns, ageColumnIndex ,bonusColumnIndex} = config;
 
   const handleChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -37,8 +38,9 @@ const ExcelToTable = () => {
     setFilters(newFilters);
   };
 
-  const handleSortChange = (order) => {
+  const handleSortChange = (order,column) => {
     setSortOrder(order);
+    setSortColumn(column)
   };
 
   const createDropdownOptions = (data) => {
@@ -62,10 +64,10 @@ const ExcelToTable = () => {
 
   const sortData = (data) => {
     if (sortOrder === 'lowToHigh') {
-      return [...data].sort((a, b) => a[ageColumnIndex] - b[ageColumnIndex]);
+      return [...data].sort((a, b) => a[sortColumn] - b[sortColumn]);
     }
     if (sortOrder === 'highToLow') {
-      return [...data].sort((a, b) => b[ageColumnIndex] - a[ageColumnIndex]);
+      return [...data].sort((a, b) => b[sortColumn] - a[sortColumn]);
     }
     return data;
   };
@@ -74,7 +76,7 @@ const ExcelToTable = () => {
 
   return (
     <div>
-      <button onClick={handleButtonClick}>Select File</button>
+      <button className='fileinput' onClick={handleButtonClick}>Select File</button>
       <input
         type="file"
         accept=".xlsx,.xls"
@@ -107,8 +109,15 @@ const ExcelToTable = () => {
                     {index === ageColumnIndex && (
                       <>
                         <br />
-                        <button onClick={() => handleSortChange('lowToHigh')}>Sort Age: Low to High</button>
-                        <button onClick={() => handleSortChange('highToLow')}>Sort Age: High to Low</button>
+                        <button id='sortbutton' onClick={() => handleSortChange('lowToHigh',ageColumnIndex)}><img src="./images/downarrow.png"/></button>
+                        <button id='sortbutton' onClick={() => handleSortChange('highToLow',ageColumnIndex)}><img src="./images/upload.png"/></button>
+                      </>
+                    )}
+                    {index === bonusColumnIndex && (
+                      <>
+                        <br />
+                        <button id='sortbutton' onClick={() => handleSortChange('lowToHigh',bonusColumnIndex)}><img src="./images/downarrow.png"/></button>
+                        <button id='sortbutton' onClick={() => handleSortChange('highToLow',bonusColumnIndex)}><img src="./images/upload.png"/></button>
                       </>
                     )}
                   </th>

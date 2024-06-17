@@ -124,8 +124,8 @@ const FormComponent = () => {
   const calculateDays = (date) => {
     const selected = new Date(date);
     const today = new Date();
-    const timeDifference = today.getTime() - selected.getTime();
-    const numOfDays = Math.floor(timeDifference / (1000 * 3600 * 24));
+    const DaysDifference = today-selected;
+    const numOfDays = Math.floor(DaysDifference / (1000 * 3600 * 24));
     setDays(numOfDays);
   };
 

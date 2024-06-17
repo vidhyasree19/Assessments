@@ -4,7 +4,7 @@ body {
   margin: 20px;
 }
 
-button {
+.fileinput {
   padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
@@ -15,7 +15,7 @@ button {
   margin-bottom: 20px;
 }
 
-button:hover {
+.fileinput:hover {
   background-color: #45a049;
 }
 
@@ -41,10 +41,23 @@ button:hover {
 }
 
 .table_body tr:nth-child(even) {
-  background-color:green;
+  background-color: #4CAF50;
 }
 
 
 h4 {
   color: #888;
+}
+#sortbutton{
+  background-color: white;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
+  width: 12px;
+  border-radius: 0.5px solid;
+  border-color: black;
+}
+img{
+  width:6px;
 }
