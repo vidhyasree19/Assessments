@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import  { useState } from 'react';
 import './App.css';
 
 const FormComponent = () => {
@@ -16,12 +16,11 @@ const FormComponent = () => {
     const { name, value } = e.target;
 
     if (name === 'name') {
-      if (!/^[A-Za-z]*$/.test(value)) {
+      if (!/^[A-Za-z\s]*$/.test(value)) {
         setErrors((prevErrors) => ({
           ...prevErrors,
           name: 'Name should contain only alphabets.',
         }));
-        return;
       } else {
         setErrors((prevErrors) => ({
           ...prevErrors,
@@ -36,19 +35,16 @@ const FormComponent = () => {
           ...prevErrors,
           panCard: 'First 5 characters should be alphabets only.',
         }));
-        return;
       } else if (value.length > 5 && value.length <= 9 && !/^[A-Za-z]{5}[0-9]*$/.test(value)) {
         setErrors((prevErrors) => ({
           ...prevErrors,
           panCard: 'Characters 6 to 9 should be numbers only.',
         }));
-        return;
       } else if (value.length === 10 && !/^[A-Za-z]{5}[0-9]{4}[A-Za-z]$/.test(value)) {
         setErrors((prevErrors) => ({
           ...prevErrors,
           panCard: 'Last character should be an alphabet.',
         }));
-        return;
       } else {
         setErrors((prevErrors) => ({
           ...prevErrors,
@@ -62,8 +58,31 @@ const FormComponent = () => {
       [name]: value,
     }));
 
-    if (name === 'days') {
+    if (name === 'dateOfBirth') {
       calculateDays(value);
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+
+    if (name === 'name' && !/^[A-Za-z\s]+$/.test(value)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        name: 'Name should contain only alphabets.',
+      }));
+    } else {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: '',
+      }));
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    const charCode = e.charCode;
+    if (charCode >= 48 && charCode <= 57) {
+      e.preventDefault();
     }
   };
 
@@ -82,12 +101,12 @@ const FormComponent = () => {
       newErrors.panCard = 'PAN Card should follow the pattern: 5 alphabets, 4 digits, 1 alphabet.';
     }
 
-    const dob = new Date(form.days);
+    const dob = new Date(form.dateOfBirth);
     const today = new Date();
     if (dob >= today) {
-      newErrors.days = 'Date of birth cannot be today or a future date.';
+      newErrors.dateOfBirth = 'Date of birth cannot be today or a future date.';
     } else if (today.getFullYear() - dob.getFullYear() > 100) {
-      newErrors.days = 'Year of birth should be within the last 100 years.';
+      newErrors.dateOfBirth = 'Year of birth should be within the last 100 years.';
     }
 
     setErrors(newErrors);
@@ -122,6 +141,8 @@ const FormComponent = () => {
               name="name"
               value={form.name}
               onChange={handleChange}
+              onKeyPress={handleKeyPress}
+              onBlur={handleBlur}
               required
               className="input"
             />
@@ -134,6 +155,7 @@ const FormComponent = () => {
               name="rollNo"
               value={form.rollNo}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
               className="input"
             />
@@ -146,6 +168,7 @@ const FormComponent = () => {
               name="panCard"
               value={form.panCard}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
               maxLength={10}
               className="input"
@@ -156,14 +179,15 @@ const FormComponent = () => {
             <label className="label">Date of Birth:</label>
             <input
               type="date"
-              name="days"
-              value={form.days}
+              name="dateOfBirth"
+              value={form.dateOfBirth}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
               max={new Date().toISOString().split('T')[0]}
               className="input"
             />
-            {errors.days && <p className="error">{errors.days}</p>}
+            {errors.dateOfBirth && <p className="error">{errors.dateOfBirth}</p>}
             {days !== null && (
               <p className="info">Total days: {days} days</p>
             )}

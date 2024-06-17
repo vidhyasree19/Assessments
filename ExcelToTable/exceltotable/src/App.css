@@ -1,16 +1,50 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .table_heading {
-  background-color: grey;
-
+  background-color: #f2f2f2;
 }
 
-.each_heading {
-  padding-right: 20px;
+.each_heading th {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
-tr:nth-child(even) {
-  background-color: green;
-  color: #ffffff;
+.table_body td {
+  padding: 10px;
+  border: 1px solid #ddd;
 }
-#inputFile{
-  visibility: hidden;
+
+.table_body tr:nth-child(even) {
+  background-color:green;
+}
+
+
+h4 {
+  color: #888;
 }
